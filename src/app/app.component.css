@@ -1,0 +1,22 @@
+#content{
+
+  background: white;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+#nav{
+  padding: 0;
+  margin: 0;
+}
+
+#footer{
+  margin-top: 30px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  color: gray;
+}
+
+.card-3 {
+  box-shadow: -5px 10px 10px -5px gray, 0 10px 10px -5px gray;
+}

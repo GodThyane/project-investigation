@@ -1,0 +1,30 @@
+nav{
+  box-shadow: inset 0 -3em 3em white,
+  0 0 0 2px rgb(255, 255, 255),
+  0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+
+.navbar-logo {
+  background: RGB(255, 204, 41);
+  padding: 20px;
+  text-decoration: none;
+}
+
+.navbar-user {
+  background: white;
+  color: RGB(26, 26, 26);
+  text-align: right;
+  padding-top: 5px;
+  padding-right: 10px;
+}
+
+.user-label{
+  font-size: 20px;
+  margin-right: 3px;
+}
+
+.bi{
+  background-repeat: no-repeat;
+  margin-bottom: 5px;
+}
+

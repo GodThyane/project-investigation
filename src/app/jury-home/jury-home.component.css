@@ -1,0 +1,26 @@
+.card {
+  background: #F8F8F8;
+  border-radius: 12px;
+  border: none;
+  margin: 31px;
+  padding: 0;
+}
+
+.card-3 {
+  box-shadow: -5px 10px 10px -5px gray, 0 10px 10px -5px gray;
+}
+
+.projects-container{
+  margin: 20px;
+}
+
+
+.bi{
+  margin-top: 30px;
+  border-radius: 5px;
+
+}
+.bi:hover{
+  background: black;
+  color: white;
+}

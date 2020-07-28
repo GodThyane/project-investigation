@@ -1,0 +1,66 @@
+.card {
+  background: #F8F8F8;
+  border-radius: 12px;
+  display: inline-block;
+  height: 600px;
+  margin: 1rem;
+  position: relative;
+  width: 670px;
+  border: none;
+}
+
+.card-3 {
+  box-shadow: -5px 10px 10px -5px gray, 0 10px 10px -5px gray;
+}
+
+.container-center{
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.login-box{
+  margin: 80px;
+  text-align: left;
+
+}
+
+.form-control{
+  background: #F8F8F8;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 3px solid #707070;
+  color: #010101;
+  padding-left: 3px;
+  box-shadow: none;
+  font-size: 20px;
+  margin-bottom: 100px;
+
+}
+
+
+.form-label {
+  font-size: 27px;
+  margin-bottom: 18px;
+}
+
+.btn {
+  font-size: 27px;
+  background: black;
+  color: white;
+  padding-left: 70px;
+  padding-right: 70px;
+  box-shadow: 0 0 3px black;
+}
+
+.btn:hover:enabled{
+  text-decoration: none;
+  color: RGB(26, 26, 26);
+  background: RGB(255, 204, 41);
+}
+
+
+.container-button{
+  margin-top: 13%;
+  text-align: center !important;
+}

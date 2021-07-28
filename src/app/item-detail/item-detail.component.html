@@ -1,0 +1,112 @@
+<div class="padre">
+  {{nameItem}}
+</div>
+
+<div *ngFor="let itemChild1 of itemChild.items">
+  <!-- Creación de Fila -->
+  <div class="row align-items-center border-bottom">
+    <!-- Creación de Primer Item -->
+    <div class="col-sm-3">
+      {{itemChild1.name}}
+    </div>
+
+    <!-- Creación de Segundos Items -->
+    <div class="col-sm-9 border-left">
+
+      <!-- Creación de Primera fila-->
+      <div class="row align-items-center" *ngFor="let itemChild of itemChild1.items">
+
+        <!-- Creación del item hoja (Nombre)-->
+        <div class="col-sm-8 border-right">
+          <p class="margin20px">
+            {{itemChild.name}}
+          </p>
+        </div>
+
+        <!-- Creación del item hoja (Ponderado)-->
+        <div class="col-sm-2 no-mar-pad" *ngIf="itemActual.evaluation_status != 'evaluated'">
+          <div class="form-group no-mar-pad text-center justify-content-center">
+            <select class="form-box mx-auto" #select="ngModel" name="select"
+                    [(ngModel)]="itemChild.grade_scale.option_name" required style="font-size: 8px">
+              <option></option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-sm-2 border-left" *ngIf="itemActual.evaluation_status == 'evaluated'">
+          <p class="no-mar-pad" style="font-size: 10px !important;">
+            {{itemChild.grade_scale.option_name}}
+          </p>
+        </div>
+
+        <!-- Creación del item hoja (Porcentaje)-->
+        <div class="col-sm-2 border-left">
+          <div class="percentege margin20px">
+            <p class="no-mar-pad">
+              {{itemChild.relative_weigth * 100}}%
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Header-->
+<div class="row align-items-center border-bottom">
+  <div class="col-sm-3">
+  </div>
+  <div class="col-sm-9">
+    <div class="row align-items-center">
+      <div class="col-sm-8 border-right">
+        <p class="margin20px">
+          Valoración
+        </p>
+      </div>
+      <div class="col-sm-2">
+        <div class="percentege margin20px">
+          <p class="no-mar-pad">
+            {{getScore()}}
+          </p>
+        </div>
+      </div>
+      <div class="col-sm-2 border-left">
+        <div class="percentege margin20px">
+          <p class="no-mar-pad">
+            100%
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row align-items-center border-bottom">
+
+
+  <div class="col-sm-3">
+  </div>
+  <div class="col-sm-9">
+
+    <div class="row align-items-center">
+
+      <div class="col-sm-8 border-right">
+        <p class="margin20px">
+          Equivalencia porcentual
+        </p>
+      </div>
+
+      <div class="col-sm-2">
+        <div class="percentege margin20px">
+          <p class="no-mar-pad">
+            {{getPercentege()}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-button" *ngIf="itemActual.evaluation_status != 'evaluated'">
+  <input type="submit" value="Guardar" class="btn btn-dark btn-lg">
+</div>

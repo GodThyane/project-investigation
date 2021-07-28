@@ -14,6 +14,10 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { JuryHomeComponent } from './jury-home/jury-home.component';
 import { StudentHomeComponent } from './student-home/student-home.component';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import { ItemDetailComponent } from './item-detail/item-detail.component';
+
+import {NgxSpinnerModule} from 'ngx-spinner';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -27,12 +31,13 @@ import { ProjectDetailComponent } from './project-detail/project-detail.componen
     AdminHomeComponent,
     JuryHomeComponent,
     StudentHomeComponent,
-    ProjectDetailComponent
+    ProjectDetailComponent,
+    ItemDetailComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule, NgxSpinnerModule, BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

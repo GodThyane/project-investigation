@@ -1,35 +1,42 @@
-<div class="projects-container">
-  <div *ngIf="!user.projects">
-    Cargando listado de proyectos..
-  </div>
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white; text-align: center">Cargando proyectos...</p>
+</ngx-spinner>
 
-  <div *ngIf="user.projects">
-    <div class="row">
-      <div class="card card-3 col-lg-2" *ngFor="let project of user.projects">
-        <div class="card-header">
-          {{project.title}}
+
+<div *ngIf="user.projects">
+  <div class="row">
+    <div class="card card-3 col-lg-2" style="max-width: 316px; min-width: 316px" *ngFor="let project of user.projects">
+      <div class="card-header">
+        {{project.name}}
+      </div>
+      <div class="project">
+        <div class="card-body">
+          <h5 class="card-title">Autor(es)</h5>
+          <h6 class="card-title"
+              *ngIf="project.students.length>1">{{project.students[0].firstName}} {{project.students[0].lastName}}, et
+            al.</h6>
+          <h6 class="card-title"
+              *ngIf="project.students.length==1">{{project.students[0].firstName}} {{project.students[0].lastName}}</h6>
+          <h5 class="card-title">Director(es)</h5>
+          <h6 class="card-title">{{project.director.firstName}} {{project.director.lastName}}</h6>
         </div>
-        <div class="row no-gutters">
-          <div class="col-md-10">
-            <div class="card-body">
-              <h5 class="card-title">Autor(es)</h5>
-              <h6 class="card-title" *ngIf="project.authors.length>1">{{project.authors[0]}}, et al.</h6>
-              <h6 class="card-title" *ngIf="project.authors.length==1">{{project.authors[0]}}</h6>
-              <h5 class="card-title">Director(es)</h5>
-              <h6 class="card-title" *ngIf="project.directors.length>1">{{project.directors[0]}}, et al.</h6>
-              <h6 class="card-title" *ngIf="project.directors.length==1">{{project.directors[0]}}</h6>
-            </div>
-          </div>
-          <div class="col-md-2">
-            <svg [routerLink]="['projects',project.id]" width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-file-earmark-text" fill="currentColor"
-                 xmlns="http://www.w3.org/2000/svg" data-toggle="modal" data-target="#exampleModalCenter">
+        <div class="icon">
+            <span data-toggle="tooltip" data-placement="top" title="Calificar proyecto">
+            <svg [routerLink]="['projects',project._id]" width="3em" height="3em" viewBox="0 0 16 16"
+                 class="bi bi-file-earmark-text" fill="currentColor"
+                 xmlns="http://www.w3.org/2000/svg" data-toggle="modal" data-target=".bd-example-modal-lg">
               <path
                 d="M4 1h5v1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6h1v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2z"/>
               <path d="M9 4.5V1l5 5h-3.5A1.5 1.5 0 0 1 9 4.5z"/>
               <path fill-rule="evenodd"
                     d="M5 11.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
             </svg>
-          </div>
+              </span>
         </div>
       </div>
     </div>

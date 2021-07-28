@@ -1,5 +1,5 @@
 import {Rol} from './rol';
-import {Project} from './project';
+import {Item} from './item';
 
 export class User {
 
@@ -8,6 +8,6 @@ export class User {
   firstName: string;
   lastName: string;
   rol: Rol;
-  projects: Project[];
+  projects: Item[];
 
 }

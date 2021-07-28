@@ -1,20 +1,44 @@
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+     aria-hidden="true" data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">{{projectActual.title}}</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <div class="modal-header" style="">
+        <div class="group-header">
+          <a class="modal-title" style="margin-bottom: 5px" id="exampleModalLongTitle">{{itemActual.name}}</a>
+          <a class="modal-status" id="exampleModalLongTitle">Autor(es): {{getUsers(itemActual.students)}}</a>
+          <a class="modal-status" id="exampleModalLongTitle">Director: {{itemActual.director.firstName}} {{itemActual.director.lastName}}.</a>
+          <a class="modal-status" id="exampleModalLongTitle" *ngIf="itemActual.evaluation_status === 'evaluated'">Estado: Evaluado</a>
+          <a class="modal-status" id="exampleModalLongTitle" *ngIf="itemActual.evaluation_status != 'evaluated'">Estado: Por calificar</a>
+        </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close()">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        {{projectActual.directors}}
-        {{projectActual.authors}}
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      <div class="row">
+        <div class="card-items">
+          <div class="items" *ngFor="let item of itemActual.items">
+            <div class="item">
+              <a class="modal-item" [routerLink]="['items',item.name]" [routerLinkActive]="['actived']"
+                 (click)="active()">
+                {{item.name}}
+              </a>
+              <svg width="1.55em" height="1.5em" viewBox="0 0 16 16" class="bi bi-check-circle-fill"
+                   fill="currentColor"
+                   xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+              </svg>
+            </div>
+          </div>
+          <div class="item resumen" [routerLink]="['9']" [routerLinkActive]="['actived']">
+            <a class="modal-item resumen">
+              Resumen de evaluación
+            </a>
+          </div>
+        </div>
+        <div class="card-item-detail" *ngIf="isActived">
+          <router-outlet></router-outlet>
+        </div>
       </div>
     </div>
   </div>

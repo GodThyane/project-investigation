@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {User} from '../../models/user';
 import {CommunicationService} from '../../services/communication.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,7 @@ export class HeaderComponent implements OnInit {
   user: User;
 
   constructor(
-    private communicationService: CommunicationService
+    private communicationService: CommunicationService, private router: Router
   ) {
   }
 
@@ -24,6 +25,11 @@ export class HeaderComponent implements OnInit {
 
   isLogin(): boolean{
     return this.user !== undefined;
+  }
+
+  exitUser(): void{
+    this.communicationService.sendUser(undefined);
+    this.router.navigate(['/home']);
   }
 
 }

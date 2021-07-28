@@ -6,15 +6,20 @@ import {AdminHomeComponent} from './admin-home/admin-home.component';
 import {StudentHomeComponent} from './student-home/student-home.component';
 import {JuryHomeComponent} from './jury-home/jury-home.component';
 import {ProjectDetailComponent} from './project-detail/project-detail.component';
+import {ItemDetailComponent} from './item-detail/item-detail.component';
 
 const routes: Routes = [
   {path: 'home', component: InitialComponent},
   {path: 'login', component: LoginComponent},
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'admin-home', component: AdminHomeComponent},
   {
     path: 'jury-home', component: JuryHomeComponent, children: [
-      {path: 'projects/:id', component: ProjectDetailComponent}
+      {
+        path: 'projects/:id', component: ProjectDetailComponent, children: [{
+          path: 'items/:nameItem', component: ItemDetailComponent
+        }]
+      }
     ]
   },
   {path: 'student-home', component: StudentHomeComponent},

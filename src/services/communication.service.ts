@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {User} from '../models/user';
 import {Subject} from 'rxjs';
-import {Project} from '../models/project';
+import {Item} from '../models/item';
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +9,12 @@ import {Project} from '../models/project';
 export class CommunicationService {
 
   user: User;
-  project: Project;
+  item: Item;
   private sendUserSubject = new Subject<User>();
   sendUserObservable = this.sendUserSubject.asObservable();
 
-  private sendProjectSubject = new Subject<Project>();
-  sendProjectObservable = this.sendProjectSubject.asObservable();
+  private sendItemSubject = new Subject<Item>();
+  sendItemObservable = this.sendItemSubject.asObservable();
 
   // tslint:disable-next-line:typedef
   sendUser(user: User){
@@ -23,8 +23,8 @@ export class CommunicationService {
   }
 
   // tslint:disable-next-line:typedef
-  sendProject(project: Project){
-    this.project = project;
-    this.sendProjectSubject.next(project);
+  sendProject(item: Item){
+    this.item = item;
+    this.sendItemSubject.next(item);
   }
 }
